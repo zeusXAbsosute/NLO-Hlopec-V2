@@ -1,6 +1,15 @@
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/SerenityHUB/Fluent/master/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local Fluent = loadstring(game:HttpGet(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('wGgfTuVEIiPFrSQxUDxsDdLXvvkVnULXIzeQiyycDPYKutkyhqKIQnSaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1NlcmVuaXR5SFVCL0ZsdWVudC9tYXN0ZXIvbWFpbi5sdWE=')))()
+local SaveManager = loadstring(game:HttpGet(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('evcrrIGFepeTSVwsiuykrSorslAdPVhhPLhTAzcLCswGMDsQTVGhDscaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rhd2lkLXNjcmlwdHMvRmx1ZW50L21hc3Rlci9BZGRvbnMvU2F2ZU1hbmFnZXIubHVh')))()
+local InterfaceManager = loadstring(game:HttpGet(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('QerOOliwWJJYtRHNqWKuLHrljjqEYHPwxQzEvmHxKmtAOULgsyWIwyHaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Rhd2lkLXNjcmlwdHMvRmx1ZW50L21hc3Rlci9BZGRvbnMvSW50ZXJmYWNlTWFuYWdlci5sdWE=')))()
 local LocalPlayer = game.Players.LocalPlayer
 
 local RocketSystem, FireRocket, FireRocketClient
@@ -16,7 +25,7 @@ local function getClosestPlayer()
     local closestDistance = math.huge
 
     for _, player in pairs(game.Players:GetPlayers()) do
-        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('JqbSPlMbVEwqWzDcCAorjxLbABjIAXZJAlsfjJbTNhUhvqqZJGQASJWSHVtYW5vaWRSb290UGFydA==')) then
             local distance = (LocalPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).magnitude
             if distance < closestDistance then
                 closestDistance = distance
@@ -33,10 +42,10 @@ local function startRPGSpam()
     if not isRPGSpamEnabled then return end
 
     if not RocketSystem then
-        local ReplicatedStorage = game:GetService("ReplicatedStorage")
-        RocketSystem = ReplicatedStorage:WaitForChild("RocketSystem")
-        FireRocket = RocketSystem:WaitForChild("Events"):WaitForChild("FireRocket")
-        FireRocketClient = RocketSystem:WaitForChild("Events"):WaitForChild("FireRocketClient")
+        local ReplicatedStorage = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('yzudvjgVHciGoEQiNtJBIDytqjOCJcpeLcSbWKPefBTXyTRPzATWaByUmVwbGljYXRlZFN0b3JhZ2U='))
+        RocketSystem = ReplicatedStorage:WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('jYsYcydFtCudfVMqOLNfmVcswbJEnjMLGKnWXWEsRYSedegEBIcsFDiUm9ja2V0U3lzdGVt'))
+        FireRocket = RocketSystem:WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('jvLxNNXZvdhLUOqfYrRyVqtatEERUldTCujHIFqXNCJIsrKZBbVBUyrRXZlbnRz')):WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('VCiVuHdlnBDIlfHbutBriqpAeCXPSBqznDkrEkHowYEjPkActKOMkusRmlyZVJvY2tldA=='))
+        FireRocketClient = RocketSystem:WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('fRsWnFhWFtlEAKCeLBBoQpTYZiuVLHXONpGFjvbDYMEHZfvrwTWPLasRXZlbnRz')):WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('AVixkDIlFQOICtZbuVHgILWaJagraqCPLWASqICDQbIURxVroYWokloRmlyZVJvY2tldENsaWVudA=='))
     end
 
     for i = 1, rocketsToFire do
@@ -53,24 +62,24 @@ local function startRPGSpam()
             targetPosition,
             directionToTarget,
             {
-                ["expShake"] = {["fadeInTime"] = 0.05, ["magnitude"] = 3, ["rotInfluence"] = {0.4, 0, 0.4}, ["fadeOutTime"] = 0.5, ["posInfluence"] = {1, 1, 0}, ["roughness"] = 3},
-                ["gravity"] = Vector3.new(0, -20, 0),
-                ["HelicopterDamage"] = 450,
-                ["FireRate"] = 15,
-                ["VehicleDamage"] = 350,
-                ["ExpName"] = "RPG",
-                ["ExpRadius"] = 12,
-                ["BoatDamage"] = 300,
-                ["TankDamage"] = 300,
-                ["Acceleration"] = 8,
-                ["ShieldDamage"] = 170,
-                ["Distance"] = 4000,
-                ["PlaneDamage"] = 500,
-                ["GunshipDamage"] = 170,
-                ["velocity"] = 0.05,
-                ["ExplosionDamage"] = 120
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('NymMuGUHFhuypBeSEkduHusMFqrbLFSseJTCcUXkWlaPolXIJnezFiaZXhwU2hha2U=')] = {[GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('TVhLlzGwJSroJzHXniEYjDltciwljtvlQQtgTVzmscJbzuBntFqrTrgZmFkZUluVGltZQ==')] = 0.05, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('aXYWhNLQjfjaXCxdByamHIriKtLtAvAlKszNfhgnhAJFEmogIcjHsyYbWFnbml0dWRl')] = 3, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('PcaIkViIIpRGWSvVSwcCbOiHOCwPArVidYhrOpJhMCUIDdtrBDlmPNncm90SW5mbHVlbmNl')] = {0.4, 0, 0.4}, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('hRTxMUVEHvibfOllSpRZzmCZWFHxppUyuONgFOKHpxNoViKzlHrgfVaZmFkZU91dFRpbWU=')] = 0.5, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('vikjmqYDBDURUxctkbDIVxIdNnubloxJqTzgMsSQkdZFDrijSpexCoDcG9zSW5mbHVlbmNl')] = {1, 1, 0}, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('nrsmDLScGYVdpjsaxYGdEWvwhHQeVkIgNeNEJDjCujybsZYKzQrxbdacm91Z2huZXNz')] = 3},
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('CjynlubawKFavWsNwdqjXdJvrGKgIRmssGVFFUdSrKhicNfzEZbEKMhZ3Jhdml0eQ==')] = Vector3.new(0, -20, 0),
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('dWvtvEGuhvKpDJXsWrrFhVUcPRDJoUZYCAMwWqdxMmJyAspNeSlWMkvSGVsaWNvcHRlckRhbWFnZQ==')] = 450,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('vZYBeNtEUuUHkHTINSMhUQUSpylRcjJAukYnUmycRPLtWZhkDREBAPeRmlyZVJhdGU=')] = 15,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ngKhBGcSblYJjgFrgmeQrurjJtBMaPTtZKxvAqiCCfESOXopwLWQUgKVmVoaWNsZURhbWFnZQ==')] = 350,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('nqUbwTuWdzwZqFTObYLeQEeNpddOyCjFKtzLypOTROTmXvETVenYiCzRXhwTmFtZQ==')] = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('VihLfxSmSCfWUCbUmQSIhfWYHWuPcAVjBFXagnTspxPDkgqefteuUkmUlBH'),
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('KIMpdlfuIcYXLXPdcLpeGmpfcaBOtRcXozcEIDDiatelJPtlQwePssVRXhwUmFkaXVz')] = 12,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('BJmQqcnlwxmtecsoJsqMjONetVUwwjIRYYrRyZEdngPwEIdhOjfkqFFQm9hdERhbWFnZQ==')] = 300,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('WodGfROiZNkhdBCmMPwWojtwxPlzuHSegVAnosiDvLldpffRltNRfuLVGFua0RhbWFnZQ==')] = 300,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ZtrrZTkJmLYyHDhAFctDKVkTqrLdhLTpwEyUGynUrUoEQRqfoUyPeKVQWNjZWxlcmF0aW9u')] = 8,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('EkNbUJrimDtuWTpVXAWcQzfEWcsbxKafQCjBfHaAcnAVqPMRskkztyIU2hpZWxkRGFtYWdl')] = 170,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bEmUUoqlyVEREKJYBAOvpPDjVAnHnXXOeMKBOSSagTZICTrbdlXPocrRGlzdGFuY2U=')] = 4000,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('dlfzReMhCmqVfMoZsooxwcuVCVTUHxjSornInGNrYOWjScLBNNcnXjeUGxhbmVEYW1hZ2U=')] = 500,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('pGkDsTjQdDjcGmeVagWtPyBSegsVLJPjWHHHTFKmapapOCkdzkOTMXHR3Vuc2hpcERhbWFnZQ==')] = 170,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('phkXTshiVJeInOsSZbPQwBVdebPNOmZmZlICTtDYcBfMsncbOyaEDdidmVsb2NpdHk=')] = 0.05,
+                [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('qCqRvnaBRLTeVRrWxstIMYRwFVpUFIaSgxgkMNdInpyySnJRqjosNkARXhwbG9zaW9uRGFtYWdl')] = 120
             },
-            RocketSystem.Rockets["RPG Rocket"],
+            RocketSystem.Rockets[GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ufBHBtohrQQyWOXlsDjqVEGkaobmkDjiYnVrwJrTpieLGmhgCwYdOwiUlBHIFJvY2tldA==')],
             workspace[LocalPlayer.Name].RPG,
             workspace[LocalPlayer.Name].RPG,
             LocalPlayer
@@ -81,29 +90,29 @@ local function startQuickLagRPG()
     if not masterToggle then return end
     if not isQuickLagRPGEnabled then return end
 
-    local camera, playerName = workspace.CurrentCamera, game:GetService("Players").LocalPlayer.Name
+    local camera, playerName = workspace.CurrentCamera, game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('PSVxNSMipvzWZmXlrgBhQVVSuNtCKBXvnqydxgLjWFagtRXvPpUBqgzUGxheWVycw==')).LocalPlayer.Name
     local repeatCount = 5
 
     local function fireQuickLagRocket()
         local fireRocketVector = camera.CFrame.LookVector
         local fireRocketPosition = camera.CFrame.Position
-        game:GetService("ReplicatedStorage").RocketSystem.Events.FireRocket:InvokeServer(
+        game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bczcTBzPHMSGWyjoegmVJsKxRWovasxnFHeWfhXAIuWkxjeJqYqsylSUmVwbGljYXRlZFN0b3JhZ2U=')).RocketSystem.Events.FireRocket:InvokeServer(
             fireRocketVector, workspace[playerName].RPG, workspace[playerName].RPG, fireRocketPosition
         )
 
         local fireRocketClientTable = {
-            ["expShake"] = {["fadeInTime"] = 0.05, ["magnitude"] = 10, ["rotInfluence"] = {0.4, 0, 0.4}, ["fadeOutTime"] = 0.5, ["posInfluence"] = {1, 1, 0}, ["roughness"] = 3},
-            ["gravity"] = Vector3.new(0, -20, 0), ["HelicopterDamage"] = 450, ["FireRate"] = 15, ["VehicleDamage"] = 350, ["ExpName"] = "RPG",
-            ["RocketAmount"] = 1, ["ExpRadius"] = 1200, ["BoatDamage"] = 300, ["TankDamage"] = 300, ["Acceleration"] = 8, ["ShieldDamage"] = 11170,
-            ["Distance"] = 400000, ["PlaneDamage"] = 500, ["GunshipDamage"] = 170, ["velocity"] = 10000, ["ExplosionDamage"] = 12000
+            [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('aQVvuhrgRNrAhGwjxatMsIrRzZExMpKnqYXuKEAjxOnJIvHTfWVfgFVZXhwU2hha2U=')] = {[GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('QuyGMCMKpLzDlGjFfcyFqLDNiFiicHCrBpUdZlQHmJhRXawKGtemhtFZmFkZUluVGltZQ==')] = 0.05, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('etPrdHhTTxDKxhhhqPFdglonErLOqndMOJmnddkTOQsNdkUVZQFObEbbWFnbml0dWRl')] = 10, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('vvgMwWDvvwDAPmJjdDXLjHbyYyaChIOIdXNLdewguLMIZSRmBuzvKjocm90SW5mbHVlbmNl')] = {0.4, 0, 0.4}, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('icPHqySZvZqJapxIpnXrCxoHIkNKOPvpbNZIydWawDPSgyGDvjxFiTLZmFkZU91dFRpbWU=')] = 0.5, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('UdsFcGqBGttZuyWqrzPMXdjWpoKdPeZJALWsLjBidEGxALahACOVGPZcG9zSW5mbHVlbmNl')] = {1, 1, 0}, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('sbsZSBWNceKkSKNTXzhEirraupWrvyGCPmSdkGvlHUkUQiRfvyinyAxcm91Z2huZXNz')] = 3},
+            [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('mjNkWONWfHAgNhGQvxZLdbeUytfCzagVxOxoBUIdioUaMSGzFhVentxZ3Jhdml0eQ==')] = Vector3.new(0, -20, 0), [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('WVVEsWvKtflUOjaeqBMVnXhvPqoEwNwoVEQBzWMubPJEhoqEHRUjECFSGVsaWNvcHRlckRhbWFnZQ==')] = 450, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('EXWGggxVuhQHkSMZfPIItEbGObJeOWmBYxiqNxynHmtAgejGLwwJkelRmlyZVJhdGU=')] = 15, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('NAaKJUtipkTlLBhQGiZNiomvRpYzDmYapfEhkvIaSLFHuPxNHmcMExhVmVoaWNsZURhbWFnZQ==')] = 350, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('XiDQTQZKlgxOrDoTCCMLVEqfDtmqZqXrJdTTKhpKTiFktTECKundjVURXhwTmFtZQ==')] = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('FDJLtrfrBbYZkyQzKTIrCXubFsOPvkLWDQigpEBlirgeTDZgUQDKJVsUlBH'),
+            [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('yroqVqoUBeUUXIoUVMmPSlKZrXhgzSyLahgqOuSaZAFalshYuQbQlkyUm9ja2V0QW1vdW50')] = 1, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('CKRYuGIFempRACDWQuOezBzoJWeNOnlewSroZtEBmsreaYWKqQbDfziRXhwUmFkaXVz')] = 1200, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('CVKWgwUSsXhXKhBUMpfLGXlWkMdkSkLxPMyHSmVzilaVaXtEvvCZjBoQm9hdERhbWFnZQ==')] = 300, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('OEUpigPMIcQEBaFGXIvyUiehQGPTwjTWhiQBfoogwdUoboFMeAsIzfYVGFua0RhbWFnZQ==')] = 300, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('xsoWVnUTjtJXlFbmeIMkabuObMbuWWxjjouhyAjCgecXPhrYUexsAPbQWNjZWxlcmF0aW9u')] = 8, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('pwyOMGBVGzSsxgREsenGdyNKQgahJqvyDlsrNPloxcSMBiSXhNXcqbrU2hpZWxkRGFtYWdl')] = 11170,
+            [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('VwxELUbMgxevpspXSTtplPaRRcysOqTtmgMesjJFYKXGElstzkikpDJRGlzdGFuY2U=')] = 400000, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bnujLPjcoxKZplnUpLuaPMusdeRmoobVmBtqgYOumrZJIIRBDpLAEFdUGxhbmVEYW1hZ2U=')] = 500, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('JodVinHnsQCBqUZnTACUjleNxGcamWGCkeJxzPPZtBKJhvTEuONbBlMR3Vuc2hpcERhbWFnZQ==')] = 170, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('twQGHflOOuWgPcXUJDmreweytKqIgGYKibSeeEjwYHvboFXzOBQZPWNdmVsb2NpdHk=')] = 10000, [GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('vdIDOGupNoTDOrQRHshvCaoayfgzhsEEkHDYyJYtOJPudgHWHzYhtWmRXhwbG9zaW9uRGFtYWdl')] = 12000
         }
 
-        local fireRocketClientInstance1 = game:GetService("ReplicatedStorage").RocketSystem.Rockets["RPG Rocket"]
+        local fireRocketClientInstance1 = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('CeYADDapZAKZAKlwEUunfAIoWbwKJvvQIakpdjfjYgLzageifvTLpEWUmVwbGljYXRlZFN0b3JhZ2U=')).RocketSystem.Rockets[GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ZAYDtdztJOVGnvvTldmRIcfuGWtEkTMCgdOChuZOmywilTxMEodPOlWUlBHIFJvY2tldA==')]
         local fireRocketClientInstance2 = workspace[playerName].RPG
         local fireRocketClientInstance3 = workspace[playerName].RPG
-        game:GetService("ReplicatedStorage").RocketSystem.Events.FireRocketClient:Fire(
+        game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('FsMshPWWUrctsjZOXfLLkquoxnwoPqnGliPiFrbbQCgYfHpSTvYodXmUmVwbGljYXRlZFN0b3JhZ2U=')).RocketSystem.Events.FireRocketClient:Fire(
             camera.CFrame.Position, camera.CFrame.LookVector, fireRocketClientTable, fireRocketClientInstance1, fireRocketClientInstance2, fireRocketClientInstance3,
-            game:GetService("Players").LocalPlayer, nil, { [1] = camera:FindFirstChild("RPG") }
+            game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('AuQuXRDXSuaJYIDfpTYJvdiBosDUNbVisixbiNfjlBtCmphMerTgmiXUGxheWVycw==')).LocalPlayer, nil, { [1] = camera:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('wmITNioyargvdhEIcZMLcEbgzcINjaBNOWIhxaKrPYbYgfbtBecNkBkUlBH')) }
         )
     end
 
@@ -117,23 +126,23 @@ end
 
 -- Setting up the GUI
 local Window = Fluent:CreateWindow({
-    Title = "NLO Hlopec",
-    SubTitle = "Made by zeus?",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('WHAmALamIKZHwIwzbUhMOSmVOFSvvrEHmYZthEBojwFLgFknTUMsBpyTkxPIEhsb3BlYw=='),
+    SubTitle = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('xSNSURqWUtHNWiRDtMeyPLsgNbdeMfmIJxuSxQouNhwjVHuLybeWyxOTWFkZSBieSB6ZXVzPw=='),
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = false,
-    Theme = "Dark",
+    Theme = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('LmjuuLvluJuzFNSVUevbjFDjFGeOEhBSkqjFpUGHebYPTKkRlKPJyCnRGFyaw=='),
     MinimizeKey = Enum.KeyCode.RightAlt
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main" }),
-    Weapons = Window:AddTab({ Title = "Weapons" }),
+    Main = Window:AddTab({ Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('RINJNohmktZDgxBdPPfrHcqvFsBoGsCHNHPiRHZaQKOLvrVvrNmlPKwTWFpbg==') }),
+    Weapons = Window:AddTab({ Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('TrLfWkaIAgflYDwAmnVNVSoMxaviNEoaGfEmkdXVhdKOxdtaWVdwOixV2VhcG9ucw==') }),
 }
 local Options = Fluent.Options
 Tabs.Weapons:AddButton({
-    Title = "Toggle RPG Spam (H)",
-    Text = "Press H to start/stop firing RPGs at the closest player.",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('qbTqCqTaFhdPsTpJVmnGSgSxaclLyJVkvprLCYKggfGGlckpKjvtLPqVG9nZ2xlIFJQRyBTcGFtIChIKQ=='),
+    Text = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('YbnePsLhcxyTHMSlBLbJawkGYSCabXdsVCorvaGmjXFnOYnVMAalIQKUHJlc3MgSCB0byBzdGFydC9zdG9wIGZpcmluZyBSUEdzIGF0IHRoZSBjbG9zZXN0IHBsYXllci4='),
     Callback = function()
         isRPGSpamEnabled = not isRPGSpamEnabled
         if isRPGSpamEnabled then
@@ -143,8 +152,8 @@ Tabs.Weapons:AddButton({
 })
 
 Tabs.Weapons:AddButton({
-    Title = "Toggle QuickLag RPG (G)",
-    Text = "Press G to start/stop QuickLag RPG spam.",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('XvUJVMBxPGEGOUoYttxHQHmieklpBWwMILuPvcQRMhxouZHApPYqPWjVG9nZ2xlIFF1aWNrTGFnIFJQRyAoRyk='),
+    Text = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('gQoFgxtwMHapjpTWfdOwxEeSpcioUFNNLqFkstoAZGtoHigCtxgTUTFUHJlc3MgRyB0byBzdGFydC9zdG9wIFF1aWNrTGFnIFJQRyBzcGFtLg=='),
     Callback = function()
         isQuickLagRPGEnabled = not isQuickLagRPGEnabled
         if isQuickLagRPGEnabled then
@@ -157,7 +166,7 @@ Tabs.Weapons:AddButton({
 
 
 -- User input for the two RPGs
-local UserInputService = game:GetService("UserInputService")
+local UserInputService = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bAZxPmfEQcrIBddEwSGlJfDfHQmdaOXTmBtPIJulAynNVhhjYBBNaJCVXNlcklucHV0U2VydmljZQ=='))
 UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     if not gameProcessedEvent then
         if input.KeyCode == Enum.KeyCode.H then
@@ -173,9 +182,9 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
         end
     end
 end)
-local Slider = Tabs.Main:AddSlider("Slider", {
-        Title = "HitBox",
-        Description = "Size",
+local Slider = Tabs.Main:AddSlider(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('YcDfNQKAYaTctJVsRKZSncIuNuXGFoHoEUNvsxfScNIqCYiOYNJHdRKU2xpZGVy'), {
+        Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('eCgHyhheaEwokuhAVSBFzKtfjLEBgKOaSyruEpXFNUdhUlVAILNiXAaSGl0Qm94'),
+        Description = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('BjkscRPCnAlPjiRzZmWSieHCyLZMyripVcYuoypUBKaJvGzkmNUWDHgU2l6ZQ=='),
         Default = 2,
         Min = 0,
         Max = 200,
@@ -183,15 +192,15 @@ local Slider = Tabs.Main:AddSlider("Slider", {
         Callback = function(Value)
         _G.HeadSize = (Value)
 		_G.Disabled = true
-		game:GetService('RunService').RenderStepped:connect(function()
+		game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('sRzlPPoHLxtMNrxkaKVrlyewOFkNAYLJaStKzwCSOUsdZJeNcyGNpGTUnVuU2VydmljZQ==')).RenderStepped:connect(function()
 		if _G.Disabled then
-		for i,v in next, game:GetService('Players'):GetPlayers() do
-		if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+		for i,v in next, game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('FsrXYrthRHBapqHHGVVozHJikFJIHjStmIgKBtDQyHlDzYRHTQWvjdPUGxheWVycw==')):GetPlayers() do
+		if v.Name ~= game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('jAQUxRFwruIfAQuBscKARcVzxuxmVDyjWzNnpDfKsduopSZSBAVxqTeUGxheWVycw==')).LocalPlayer.Name then
 		pcall(function()
 		v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
 		v.Character.Head.Transparency = 1
-		v.Character.Head.BrickColor = BrickColor.new("Red")
-		v.Character.Head.Material = "Neon"
+		v.Character.Head.BrickColor = BrickColor.new(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('FdmwwaTOYaocXmqUfXCUmNKssylcdLaoLbBHfmLMEuzSbcOdsmvZjGwUmVk'))
+		v.Character.Head.Material = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('pAxLNNcNpXtPJNiBEvemWACgqHyqXjNdBIPnjoQxrFNBatLPOqtyIqnTmVvbg==')
 		v.Character.Head.CanCollide = false
 		v.Character.Head.Massless = true
 		end)
@@ -205,16 +214,16 @@ local Slider = Tabs.Main:AddSlider("Slider", {
 	local player = game.Players.LocalPlayer
 local SliderValue = 16  -- Начальное значение, равное значению по умолчанию на слайдере
 
-local Slider = Tabs.Main:AddSlider("Slider", {
-    Title = "Walkspeed",
-    Description = "Speed",
+local Slider = Tabs.Main:AddSlider(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('MrnGOXoUinuyRffYkFLyNOZAGCLnaDYLTVBAAvotlABNIVRjcLgAkLEU2xpZGVy'), {
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('lYVSseZDVejFkowbKDZtGvNLwCutPOLtAgvmfmGkZgLkAVkvYcdiBngV2Fsa3NwZWVk'),
+    Description = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('BDrSDoNZZMrOTyrfjGOLQPrJpiLqRLklcsPJXgxMrapqcWAgzjcHdlZU3BlZWQ='),
     Default = SliderValue,
     Min = 0,
     Max = 300, 
     Rounding = 1,
     Callback = function(Value)
         SliderValue = Value  -- Обновляем значение слайдера
-        local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+        local humanoid = player.Character and player.Character:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('tPkEimGfTFtFwBkoMtplCqeztgguUgRyUiCiTWXryizWgVtyMuVQBjZSHVtYW5vaWQ='))
         if humanoid then
             humanoid.WalkSpeed = SliderValue  -- Устанавливаем скорость на значение слайдера
         end
@@ -223,13 +232,13 @@ local Slider = Tabs.Main:AddSlider("Slider", {
 
 -- Функция для установки скорости при добавлении персонажа
 local function onCharacterAdded(character)
-    local humanoid = character:WaitForChild("Humanoid")
+    local humanoid = character:WaitForChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('uboFrOSwYOOPRJrAmrDRSzkTZcFkwLVlArizZqQHSRBuMTEcNFRxZWqSHVtYW5vaWQ='))
     
     -- Установить скорость на значение слайдера
     humanoid.WalkSpeed = SliderValue  
 
     -- Теперь следим за изменением WalkSpeed
-    humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+    humanoid:GetPropertyChangedSignal(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('trGEOepOnfvzjbyUmZIGXskhJsDnAFPKAXcsgjwefgozdsEfrLqnJPAV2Fsa1NwZWVk')):Connect(function()
         if humanoid.WalkSpeed ~= SliderValue then
             humanoid.WalkSpeed = SliderValue  -- Сбрасываем скорость к значению слайдера
         end
@@ -245,21 +254,21 @@ end
 player.CharacterAdded:Connect(onCharacterAdded)
 
 	Tabs.Main:AddButton({
-    Title = "Teleport | ctrl + Mouse1Click",
-    Description = "Distances greater than 3000 studs are not teleported to for saving.",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('YiRDGbjySriqHxCpWKYmXyfZIRlyAjGRrbzgnLInSasOeXoFnFXFZaRVGVsZXBvcnQgfCBjdHJsICsgTW91c2UxQ2xpY2s='),
+    Description = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('eVRrXVzoPFlCOMXKsnkHRELPouXOdhDPftuoENIyoCjbycdAjRHngdsRGlzdGFuY2VzIGdyZWF0ZXIgdGhhbiAzMDAwIHN0dWRzIGFyZSBub3QgdGVsZXBvcnRlZCB0byBmb3Igc2F2aW5nLg=='),
     Callback = function()
-        local UserInputService = game:GetService("UserInputService")
-        local Players = game:GetService("Players")
+        local UserInputService = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('HjbctIDMhGScNctnwMgyZjBptUfwHBIIOhkwfTvLeNMZOyfdGEfgYewVXNlcklucHV0U2VydmljZQ=='))
+        local Players = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('pHdoeYhAWUAPmoBjuGwFqhtODsUsjyIMAbuToRVEEnDZgJYcIqvFgwSUGxheWVycw=='))
         local LocalPlayer = Players.LocalPlayer
         local MAX_DISTANCE = 3000
 
         local function toggleDamageProtection(character, protect)
-            local humanoid = character:FindFirstChild("Humanoid")
+            local humanoid = character:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('upjNKjJVGZDEEpIMqhurcbVzAMygDWZOvoYzabrzbKtNbEiCZrwsOrwSHVtYW5vaWQ='))
             if humanoid then
                 if protect then
-                    humanoid:SetAttribute("NoDamage", true)
+                    humanoid:SetAttribute(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('NwjbdQdfOvlldumoRNDZhwEIlTurBvRDPxaNmpYsQPlUEFGVNFzvKKHTm9EYW1hZ2U='), true)
                 else
-                    humanoid:SetAttribute("NoDamage", false)
+                    humanoid:SetAttribute(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('HiotgzUjaFdHQYwuSKKHfnXhNqtUXDQONtQfeBhJhkLICvFifVmKnTGTm9EYW1hZ2U='), false)
                 end
             end
         end
@@ -268,7 +277,7 @@ player.CharacterAdded:Connect(onCharacterAdded)
             local mouse = LocalPlayer:GetMouse()
             local character = LocalPlayer.Character
 
-            if character and character:FindFirstChild("HumanoidRootPart") then
+            if character and character:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('jiudZeAAuxqWGDMiRnlBoZvGaiMsleGPswhKTXLrQZdIDhnOcqSlSpFSHVtYW5vaWRSb290UGFydA==')) then
                 local humanoidRootPart = character.HumanoidRootPart
                 local currentPosition = humanoidRootPart.Position
                 local targetPosition = mouse.Hit.p
@@ -282,7 +291,7 @@ player.CharacterAdded:Connect(onCharacterAdded)
 
                     toggleDamageProtection(character, false)
                 else
-                    warn("Distances greater than 3000 studs are not teleported to for saving.")
+                    warn(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('TKXhLsCQJOzYiXuSxCqPsxNsmvXSKQVckgKNhwnRLHHpaOKeuGAyRiPRGlzdGFuY2VzIGdyZWF0ZXIgdGhhbiAzMDAwIHN0dWRzIGFyZSBub3QgdGVsZXBvcnRlZCB0byBmb3Igc2F2aW5nLg=='))
                 end
             end
         end
@@ -295,40 +304,40 @@ player.CharacterAdded:Connect(onCharacterAdded)
     end 
 })
 local function checkAndDestroyObjects()
-    local freefall = game:GetService("ReplicatedStorage"):FindFirstChild("Freefall")
+    local freefall = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('WeiZGxnGvpyEQAFDamylELIiEqdtGZmgomCYftFfetzdjPTdGFJzkZIUmVwbGljYXRlZFN0b3JhZ2U=')):FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('UBfIPMUOuJDeYTwIWglKsDKEcOjpQdIsBSlgmiUqGhIHEgwIHlEpvQFRnJlZWZhbGw='))
     if freefall then
         freefall:Destroy()
-        print("Freefall destroyed")
+        print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('wcAtImwyDfnddvufSXMMrzeIPIXuUHJSYztemPGQkbgbXPGFuKPIsGGRnJlZWZhbGwgZGVzdHJveWVk'))
     else
-        print("Freefall не найден") -- Сообщение, если объект не найден
+        print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('DFYPnHwpdhBQkhmPiXXTUIJFJyQNQNfkxKopItfYifESXfXUpvwQtGYRnJlZWZhbGwg0L3QtSDQvdCw0LnQtNC10L0=')) -- Сообщение, если объект не найден
     end
 
-    local acsEngine = game:GetService("ReplicatedStorage"):FindFirstChild("ACS_Engine")
+    local acsEngine = game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('jnqSijqiCaamQgpsSKVVOCBvpgEqKOqmcviVYdRBHDLLEDwhvgsyUrdUmVwbGljYXRlZFN0b3JhZ2U=')):FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('grQzokuwudhBTArTDPmerLYyyuWghJYcLFbzNZGMqetGgMBJdltOsSHQUNTX0VuZ2luZQ=='))
     if acsEngine then
-        local events = acsEngine:FindFirstChild("Events")
+        local events = acsEngine:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('nurlKguOdMsoFkbMxLrbDoIhEVPjcxatOCXksWsMCQykXouLmdzjKzfRXZlbnRz'))
         if events then
-            local fdmg = events:FindFirstChild("FDMG")
+            local fdmg = events:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('UqKAUoBJgSjKXsfYNDmwXQDwCVZWTgQeWBLSoHTuUQadvWJPkhfWMttRkRNRw=='))
             if fdmg then
                 fdmg:Destroy()
-                print("FDMG destroyed")
+                print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('uOzfjvKjblvvtKykvIHZKTKaKwJdSIXzyxsuQwSJewOOCHwEHpUBjIsRkRNRyBkZXN0cm95ZWQ='))
             else
-                print("FDMG не найден") -- Сообщение, если объект не найден
+                print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('tjWuqbjnDshmyzYBrOtZPHpWlOvhczVNrTsMIiLhruvDnnTjuBToAWvRkRNRyDQvdC1INC90LDQudC00LXQvQ==')) -- Сообщение, если объект не найден
             end
         else
-            print("Events не найден в ACS_Engine")
+            print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ypnQffBhRTXzvjlbUKmzACuglAunaUetxepNsovifadjpOsiPNgLbabRXZlbnRzINC90LUg0L3QsNC50LTQtdC9INCyIEFDU19FbmdpbmU='))
         end
     else
-        print("ACS_Engine не найден в ReplicatedStorage")
+        print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('yhGOUrmtitaNtCyxWAvhlggHYYKmWSnbhtBBFknLICBYyXcPDyFHmIHQUNTX0VuZ2luZSDQvdC1INC90LDQudC00LXQvSDQsiBSZXBsaWNhdGVkU3RvcmFnZQ=='))
     end
 end
 
 -- Add a button in the Main tab to execute the checkAndDestroyObjects function
 Tabs.Main:AddButton({
-    Title = "nofalldmg",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('nUlhxEfaQSfYonFlunJJTTbkjUIuKcYTmvXlZYpjscvNxBgnccCAQnXbm9mYWxsZG1n'),
     Callback = checkAndDestroyObjects
 })
 local function setupCamera()
-    local camera = Instance.new("Camera")
+    local camera = Instance.new(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('eNzBzHFIqMKHErcrIkVJTuSbTcdFGEYcYCewpqLHEtoagVEimgCBhMyQ2FtZXJh'))
     camera.Parent = workspace
     wait(0.1)
     camera.CameraSubject = LocalPlayer.Character.Humanoid
@@ -339,15 +348,15 @@ local function setupCamera()
     workspace.CurrentCamera = camera -- Set the newly created camera as the current camera
 end
 Tabs.Main:AddButton({
-    Title = "infzoom",
-    Text = "Press to set up the camera.",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bcOKpZpNKhVJjRKrNzQiCSmNodEyFLBvTQmNLCTUpqSILAqFsiaIeepaW5mem9vbQ=='),
+    Text = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('cGGdUKqXJHAIsEHkqYLjYoELwENVBzBRUZcXvzAQCikSATYhOkmHYqRUHJlc3MgdG8gc2V0IHVwIHRoZSBjYW1lcmEu'),
     Callback = function()
         setupCamera()
     end
 })
 Tabs.Weapons:AddButton({
-		Title = "Inf Ammo | for all weapons",
-		Description = "",
+		Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('LeiEkpQYMmYREUGbHryybIbeHqKJFpRaTaqCQkZYiYZwvjGVVTWGQFuSW5mIEFtbW8gfCBmb3IgYWxsIHdlYXBvbnM='),
+		Description = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('DfmvMjKHMmOmilPzWOvstCtBLlqlEOsqbdZRofPKwSaKLreKtpEkxQF'),
 		Callback = function()
 			local player = game.Players.LocalPlayer
 
@@ -355,19 +364,19 @@ Tabs.Weapons:AddButton({
 local function updateAmmo(container)
     if container then
         for _, weapon in ipairs(container:GetChildren()) do
-            if weapon:IsA("Tool") and weapon:FindFirstChild("ACS_Modulo") then
+            if weapon:IsA(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('IHOsGotAhdRpwfsqWGBuXZjQwPLkIpxKVqaAWiNvarUCIolZJygAWTPVG9vbA==')) and weapon:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('VdTHSQImfRruLrxdpBLnqArehSoTXwPPjskobWJrubLMJQSXXbWFcxyQUNTX01vZHVsbw==')) then
                 local acsModule = weapon.ACS_Modulo
-                local variaveis = acsModule:FindFirstChild("Variaveis")
+                local variaveis = acsModule:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('AfKjMABMIOvxtrwwlmYTjhTXDdCkUhhvCxGZHFlOzUXQxoXhwZePXPqVmFyaWF2ZWlz'))
                 
-                if variaveis and variaveis:FindFirstChild("Ammo") then
+                if variaveis and variaveis:FindFirstChild(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('dMriXhoZZyRkNureBRBcpdkaLhzibLXIxHsKGjMYoUufUaAMrXcOwEFQW1tbw==')) then
                     local ammo = variaveis.Ammo
                     ammo.Value = math.huge
-                    print("Ammo set to infinite for: " .. weapon.Name)
+                    print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('bHEqXAtYmmyMSbjEArBepNiiYXXBNFtmjEhClstHMydWaWicCWaFHJrQW1tbyBzZXQgdG8gaW5maW5pdGUgZm9yOiA=') .. weapon.Name)
                 else
-                    print("Ammo not found in weapon: " .. weapon.Name)
+                    print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('LmvjcVVkwkAOFWoquRHrRBHHuaGmPUmLFuFzHSaCYAqAlccmsVpyoQpQW1tbyBub3QgZm91bmQgaW4gd2VhcG9uOiA=') .. weapon.Name)
                 end
             else
-                print("Weapon or ACS_Modulo not found for: " .. weapon.Name)
+                print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('VGELAAMbRNEhaOojHieFFIfvrqbdgpLwSjPINOejEIEJENaTRNUpiboV2VhcG9uIG9yIEFDU19Nb2R1bG8gbm90IGZvdW5kIGZvcjog') .. weapon.Name)
             end
         end
     end
@@ -383,14 +392,14 @@ end
 		end
 	})
 	local button = Tabs.Main:AddButton({
-    Title = "instant",
-    Description = "pisa",
+    Title = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('XTqtGjbQjvzxeZFMARVddcOJBUCxxgOJmbWCrZewUkfYtCFIRXEkdPnaW5zdGFudA=='),
+    Description = GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('KjnfSJkKMIQshcKfbzGEwfSdabysIMrteJbvmCBpoenpwjzsoDEdcPLcGlzYQ=='),
     Callback = function()
-        print("Button clicked!")
+        print(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('QKjvEiGVbTwMMlFBwgUpitlZxydYKATHalFTVLfxwMGJjzmmeDTpQXqQnV0dG9uIGNsaWNrZWQh'))
     end
 })
 
 -- Добавляем обработчик события PromptButtonHoldBegan
-game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+game:GetService(GMTDVHJQCHmGShorBrbkcwqZQJAXwqiRHLpeRtuGHBPFfUnINuStFKFxHXkRraEanDqSMEaZvoJrRrQ('ViJvXRxOBhiuHBvVwaPcjtwNsIBWDFEIvqYoDmBbVhPSXXKYwuRRpQsUHJveGltaXR5UHJvbXB0U2VydmljZQ==')).PromptButtonHoldBegan:Connect(function(prompt)
     prompt.HoldDuration = 0
-end)
+end)    
