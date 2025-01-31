@@ -1,0 +1,396 @@
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/SerenityHUB/Fluent/master/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+local LocalPlayer = game.Players.LocalPlayer
+
+local RocketSystem, FireRocket, FireRocketClient
+
+-- Toggle variables
+local masterToggle = true
+local isRPGSpamEnabled = false
+local isQuickLagRPGEnabled = false
+local rocketsToFire = 50
+
+local function getClosestPlayer()
+    local closestPlayer = nil
+    local closestDistance = math.huge
+
+    for _, player in pairs(game.Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            local distance = (LocalPlayer.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).magnitude
+            if distance < closestDistance then
+                closestDistance = distance
+                closestPlayer = player
+            end
+        end
+    end
+
+    return closestPlayer
+end
+
+local function startRPGSpam()
+    if not masterToggle then return end
+    if not isRPGSpamEnabled then return end
+
+    if not RocketSystem then
+        local ReplicatedStorage = game:GetService("ReplicatedStorage")
+        RocketSystem = ReplicatedStorage:WaitForChild("RocketSystem")
+        FireRocket = RocketSystem:WaitForChild("Events"):WaitForChild("FireRocket")
+        FireRocketClient = RocketSystem:WaitForChild("Events"):WaitForChild("FireRocketClient")
+    end
+
+    for i = 1, rocketsToFire do
+        if not isRPGSpamEnabled then return end
+
+        local closestPlayer = getClosestPlayer()
+        if not closestPlayer then return end
+
+        local targetPosition = closestPlayer.Character.HumanoidRootPart.Position
+        local directionToTarget = (targetPosition - LocalPlayer.Character.HumanoidRootPart.Position).unit
+
+        FireRocket:InvokeServer(directionToTarget, workspace[LocalPlayer.Name].RPG, workspace[LocalPlayer.Name].RPG, targetPosition)
+        FireRocketClient:Fire(
+            targetPosition,
+            directionToTarget,
+            {
+                ["expShake"] = {["fadeInTime"] = 0.05, ["magnitude"] = 3, ["rotInfluence"] = {0.4, 0, 0.4}, ["fadeOutTime"] = 0.5, ["posInfluence"] = {1, 1, 0}, ["roughness"] = 3},
+                ["gravity"] = Vector3.new(0, -20, 0),
+                ["HelicopterDamage"] = 450,
+                ["FireRate"] = 15,
+                ["VehicleDamage"] = 350,
+                ["ExpName"] = "RPG",
+                ["ExpRadius"] = 12,
+                ["BoatDamage"] = 300,
+                ["TankDamage"] = 300,
+                ["Acceleration"] = 8,
+                ["ShieldDamage"] = 170,
+                ["Distance"] = 4000,
+                ["PlaneDamage"] = 500,
+                ["GunshipDamage"] = 170,
+                ["velocity"] = 0.05,
+                ["ExplosionDamage"] = 120
+            },
+            RocketSystem.Rockets["RPG Rocket"],
+            workspace[LocalPlayer.Name].RPG,
+            workspace[LocalPlayer.Name].RPG,
+            LocalPlayer
+        )
+    end
+end
+local function startQuickLagRPG()
+    if not masterToggle then return end
+    if not isQuickLagRPGEnabled then return end
+
+    local camera, playerName = workspace.CurrentCamera, game:GetService("Players").LocalPlayer.Name
+    local repeatCount = 5
+
+    local function fireQuickLagRocket()
+        local fireRocketVector = camera.CFrame.LookVector
+        local fireRocketPosition = camera.CFrame.Position
+        game:GetService("ReplicatedStorage").RocketSystem.Events.FireRocket:InvokeServer(
+            fireRocketVector, workspace[playerName].RPG, workspace[playerName].RPG, fireRocketPosition
+        )
+
+        local fireRocketClientTable = {
+            ["expShake"] = {["fadeInTime"] = 0.05, ["magnitude"] = 10, ["rotInfluence"] = {0.4, 0, 0.4}, ["fadeOutTime"] = 0.5, ["posInfluence"] = {1, 1, 0}, ["roughness"] = 3},
+            ["gravity"] = Vector3.new(0, -20, 0), ["HelicopterDamage"] = 450, ["FireRate"] = 15, ["VehicleDamage"] = 350, ["ExpName"] = "RPG",
+            ["RocketAmount"] = 1, ["ExpRadius"] = 1200, ["BoatDamage"] = 300, ["TankDamage"] = 300, ["Acceleration"] = 8, ["ShieldDamage"] = 11170,
+            ["Distance"] = 400000, ["PlaneDamage"] = 500, ["GunshipDamage"] = 170, ["velocity"] = 10000, ["ExplosionDamage"] = 12000
+        }
+
+        local fireRocketClientInstance1 = game:GetService("ReplicatedStorage").RocketSystem.Rockets["RPG Rocket"]
+        local fireRocketClientInstance2 = workspace[playerName].RPG
+        local fireRocketClientInstance3 = workspace[playerName].RPG
+        game:GetService("ReplicatedStorage").RocketSystem.Events.FireRocketClient:Fire(
+            camera.CFrame.Position, camera.CFrame.LookVector, fireRocketClientTable, fireRocketClientInstance1, fireRocketClientInstance2, fireRocketClientInstance3,
+            game:GetService("Players").LocalPlayer, nil, { [1] = camera:FindFirstChild("RPG") }
+        )
+    end
+
+    for i = 1, repeatCount do
+        task.spawn(fireQuickLagRocket)
+    end
+end
+
+-- Function to set up camera
+
+
+-- Setting up the GUI
+local Window = Fluent:CreateWindow({
+    Title = "NLO Hlopec",
+    SubTitle = "Made by zeus?",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = false,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.RightAlt
+})
+
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main" }),
+    Weapons = Window:AddTab({ Title = "Weapons" }),
+}
+local Options = Fluent.Options
+Tabs.Weapons:AddButton({
+    Title = "Toggle RPG Spam (H)",
+    Text = "Press H to start/stop firing RPGs at the closest player.",
+    Callback = function()
+        isRPGSpamEnabled = not isRPGSpamEnabled
+        if isRPGSpamEnabled then
+            startRPGSpam()
+        end
+    end
+})
+
+Tabs.Weapons:AddButton({
+    Title = "Toggle QuickLag RPG (G)",
+    Text = "Press G to start/stop QuickLag RPG spam.",
+    Callback = function()
+        isQuickLagRPGEnabled = not isQuickLagRPGEnabled
+        if isQuickLagRPGEnabled then
+            startQuickLagRPG()
+        end
+    end
+})
+
+-- Button to set up camera
+
+
+-- User input for the two RPGs
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if not gameProcessedEvent then
+        if input.KeyCode == Enum.KeyCode.H then
+            isRPGSpamEnabled = not isRPGSpamEnabled
+            if isRPGSpamEnabled then
+                startRPGSpam()
+            end
+        elseif input.KeyCode == Enum.KeyCode.G then
+            isQuickLagRPGEnabled = not isQuickLagRPGEnabled
+            if isQuickLagRPGEnabled then
+                startQuickLagRPG()
+            end
+        end
+    end
+end)
+local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "HitBox",
+        Description = "Size",
+        Default = 2,
+        Min = 0,
+        Max = 200,
+        Rounding = 1,
+        Callback = function(Value)
+        _G.HeadSize = (Value)
+		_G.Disabled = true
+		game:GetService('RunService').RenderStepped:connect(function()
+		if _G.Disabled then
+		for i,v in next, game:GetService('Players'):GetPlayers() do
+		if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+		pcall(function()
+		v.Character.Head.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+		v.Character.Head.Transparency = 1
+		v.Character.Head.BrickColor = BrickColor.new("Red")
+		v.Character.Head.Material = "Neon"
+		v.Character.Head.CanCollide = false
+		v.Character.Head.Massless = true
+		end)
+		end
+		end
+		end
+		end) 
+        end
+    })
+	
+	local player = game.Players.LocalPlayer
+local SliderValue = 16  -- Начальное значение, равное значению по умолчанию на слайдере
+
+local Slider = Tabs.Main:AddSlider("Slider", {
+    Title = "Walkspeed",
+    Description = "Speed",
+    Default = SliderValue,
+    Min = 0,
+    Max = 300, 
+    Rounding = 1,
+    Callback = function(Value)
+        SliderValue = Value  -- Обновляем значение слайдера
+        local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = SliderValue  -- Устанавливаем скорость на значение слайдера
+        end
+    end
+})
+
+-- Функция для установки скорости при добавлении персонажа
+local function onCharacterAdded(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    -- Установить скорость на значение слайдера
+    humanoid.WalkSpeed = SliderValue  
+
+    -- Теперь следим за изменением WalkSpeed
+    humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+        if humanoid.WalkSpeed ~= SliderValue then
+            humanoid.WalkSpeed = SliderValue  -- Сбрасываем скорость к значению слайдера
+        end
+    end)
+end
+
+-- Применение к текущему персонажу
+if player.Character then
+    onCharacterAdded(player.Character)
+end
+
+-- Устанавливаем на нового персонажа в будущем
+player.CharacterAdded:Connect(onCharacterAdded)
+
+	Tabs.Main:AddButton({
+    Title = "Teleport | ctrl + Mouse1Click",
+    Description = "Distances greater than 3000 studs are not teleported to for saving.",
+    Callback = function()
+        local UserInputService = game:GetService("UserInputService")
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+        local MAX_DISTANCE = 3000
+
+        local function toggleDamageProtection(character, protect)
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                if protect then
+                    humanoid:SetAttribute("NoDamage", true)
+                else
+                    humanoid:SetAttribute("NoDamage", false)
+                end
+            end
+        end
+
+        local function teleportToMouse()
+            local mouse = LocalPlayer:GetMouse()
+            local character = LocalPlayer.Character
+
+            if character and character:FindFirstChild("HumanoidRootPart") then
+                local humanoidRootPart = character.HumanoidRootPart
+                local currentPosition = humanoidRootPart.Position
+                local targetPosition = mouse.Hit.p
+
+                local distance = (targetPosition - currentPosition).Magnitude
+                if distance <= MAX_DISTANCE then
+
+                    toggleDamageProtection(character, true)
+
+                    humanoidRootPart.CFrame = CFrame.new(targetPosition)
+
+                    toggleDamageProtection(character, false)
+                else
+                    warn("Distances greater than 3000 studs are not teleported to for saving.")
+                end
+            end
+        end
+
+        UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+                teleportToMouse()
+            end
+        end) 
+    end 
+})
+local function checkAndDestroyObjects()
+    local freefall = game:GetService("ReplicatedStorage"):FindFirstChild("Freefall")
+    if freefall then
+        freefall:Destroy()
+        print("Freefall destroyed")
+    else
+        print("Freefall не найден") -- Сообщение, если объект не найден
+    end
+
+    local acsEngine = game:GetService("ReplicatedStorage"):FindFirstChild("ACS_Engine")
+    if acsEngine then
+        local events = acsEngine:FindFirstChild("Events")
+        if events then
+            local fdmg = events:FindFirstChild("FDMG")
+            if fdmg then
+                fdmg:Destroy()
+                print("FDMG destroyed")
+            else
+                print("FDMG не найден") -- Сообщение, если объект не найден
+            end
+        else
+            print("Events не найден в ACS_Engine")
+        end
+    else
+        print("ACS_Engine не найден в ReplicatedStorage")
+    end
+end
+
+-- Add a button in the Main tab to execute the checkAndDestroyObjects function
+Tabs.Main:AddButton({
+    Title = "nofalldmg",
+    Callback = checkAndDestroyObjects
+})
+local function setupCamera()
+    local camera = Instance.new("Camera")
+    camera.Parent = workspace
+    wait(0.1)
+    camera.CameraSubject = LocalPlayer.Character.Humanoid
+    camera.CameraType = Enum.CameraType.Custom
+    LocalPlayer.CameraMinZoomDistance = 0.5
+    LocalPlayer.CameraMaxZoomDistance = 100000
+    LocalPlayer.CameraMode = Enum.CameraMode.Classic
+    workspace.CurrentCamera = camera -- Set the newly created camera as the current camera
+end
+Tabs.Main:AddButton({
+    Title = "infzoom",
+    Text = "Press to set up the camera.",
+    Callback = function()
+        setupCamera()
+    end
+})
+Tabs.Weapons:AddButton({
+		Title = "Inf Ammo | for all weapons",
+		Description = "",
+		Callback = function()
+			local player = game.Players.LocalPlayer
+
+
+local function updateAmmo(container)
+    if container then
+        for _, weapon in ipairs(container:GetChildren()) do
+            if weapon:IsA("Tool") and weapon:FindFirstChild("ACS_Modulo") then
+                local acsModule = weapon.ACS_Modulo
+                local variaveis = acsModule:FindFirstChild("Variaveis")
+                
+                if variaveis and variaveis:FindFirstChild("Ammo") then
+                    local ammo = variaveis.Ammo
+                    ammo.Value = math.huge
+                    print("Ammo set to infinite for: " .. weapon.Name)
+                else
+                    print("Ammo not found in weapon: " .. weapon.Name)
+                end
+            else
+                print("Weapon or ACS_Modulo not found for: " .. weapon.Name)
+            end
+        end
+    end
+end
+
+while task.wait(0.5) do
+    updateAmmo(player.Backpack)
+
+    if player.Character then
+        updateAmmo(player.Character)
+    end
+end
+		end
+	})
+	local button = Tabs.Main:AddButton({
+    Title = "instant",
+    Description = "pisa",
+    Callback = function()
+        print("Button clicked!")
+    end
+})
+
+-- Добавляем обработчик события PromptButtonHoldBegan
+game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+    prompt.HoldDuration = 0
+end)
